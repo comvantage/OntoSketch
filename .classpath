@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="lib" path="libs/androjena/androjena_0.5.jar" sourcepath="libs/androjena/androjena_0.5_sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/androjena/arqoid_0.5.jar" sourcepath="libs/androjena/arqoid_0.5_sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/androjena/icu4j-3.4.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/androjena/iri-0.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/androjena/lucenoid_3.0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/androjena/slf4j-android-1.6.1-RC1.jar"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

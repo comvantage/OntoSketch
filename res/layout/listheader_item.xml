@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/iconContainer"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/tabBackground"
+    android:paddingTop="5dp" >
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/primaryText"
+        android:background="@android:color/background_dark" />
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="false" >
+
+        <TextView
+            android:id="@+id/primaryText"
+            android:layout_width="232dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="0.27"
+            android:text="Medium Text"
+            android:textAllCaps="true"
+            android:textColor="@color/ontoPanelBtn"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:id="@+id/collapseButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="9dp"
+            android:background="@color/tabBackground"
+            android:baselineAlignBottom="false"
+            android:src="@drawable/ic_listitem_open2" />
+
+        <ImageButton
+            android:id="@+id/deleteButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="-7dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/tabBackground"
+            android:baselineAlignBottom="false"
+            android:scaleType="center"
+            android:src="@drawable/ic_listitem_delete2" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,470 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tabBtnBackground"
+    tools:context=".MainActivity" >
+
+    <com.drawing.application.DrawView
+        android:id="@+id/sketchingBoard"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/sketchBackground"
+        android:scaleType="matrix" />
+
+    <RelativeLayout
+        android:id="@+id/scrollLayer"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="110dp"
+        android:layout_marginRight="-150dp"
+        android:layout_marginTop="110dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp" >
+
+        <RelativeLayout
+            android:id="@+id/btncontainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp" >
+
+            <Button
+                android:id="@+id/buttonConcrete"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="-5dp"
+                android:background="@drawable/scrollbar_button"
+                android:maxLines="1"
+                android:onClick="scrollToConcrete"
+                android:text="@string/scrolllabel_concrete"
+                android:textAllCaps="true"
+                android:textColor="@drawable/btn_color_specific"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/buttonCenter"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="false"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="145dp"
+                android:background="@drawable/scrollbar_button"
+                android:maxLines="1"
+                android:onClick="scrollToCenter"
+                android:text="@string/scrolllabel_center"
+                android:textAllCaps="true"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/buttonAbstract"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="-15dp"
+                android:background="@drawable/scrollbar_button"
+                android:maxLines="1"
+                android:onClick="scrollToAbstract"
+                android:text="@string/scrolllabel_abstract"
+                android:textAllCaps="true"
+                android:textColor="@drawable/btn_color_abstract"
+                android:textSize="25sp" />
+        </RelativeLayout>
+
+        <android.widget.VerticalSeekBar
+            android:id="@+id/scrollBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="-10dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/overlay"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/transparent"
+        android:focusable="true" >
+
+        <LinearLayout
+            android:id="@+id/ontoPanel"
+            android:layout_width="395dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/tabBtnBackground" >
+
+            <LinearLayout
+                android:id="@+id/tabSearchContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/tabBackground"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/tabContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TabHost
+                        android:id="@android:id/tabhost"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:focusable="true" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/tabBackground"
+                            android:orientation="vertical" >
+
+                            <TabWidget
+                                android:id="@android:id/tabs"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/tabBtnBackground" >
+                            </TabWidget>
+
+                            <FrameLayout
+                                android:id="@android:id/tabcontent"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/tabBackground" >
+
+                                <LinearLayout
+                                    android:id="@+id/ontoClassesTab"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:focusable="true"
+                                    android:orientation="vertical" >
+
+                                    <LinearLayout
+                                        android:id="@+id/searchClassesContainer"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:focusable="true"
+                                        android:orientation="vertical"
+                                        android:visibility="gone" >
+
+                                        <com.drawing.ontosketch.ui.FilterListHeaderItem
+                                            android:id="@+id/searchClassesItem"
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginTop="5dp" />
+
+                                        <ScrollView
+                                            android:id="@+id/searchScrollView1"
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="fill_parent"
+                                            android:background="@color/tabBackground" >
+
+                                            <LinearLayout
+                                                android:id="@+id/searchClassList"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="fill_parent"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginRight="10dp"
+                                                android:orientation="vertical" >
+                                            </LinearLayout>
+                                        </ScrollView>
+                                    </LinearLayout>
+
+                                    <ScrollView
+                                        android:id="@+id/scrollView1"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:background="@color/tabBackground" >
+
+                                        <LinearLayout
+                                            android:id="@+id/classList"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="fill_parent"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:orientation="vertical" >
+
+                                            <TextView
+                                                android:id="@+id/ontoPanelHintText1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_margin="25dp"
+                                                android:text="@string/ontopanel_hint_text"
+                                                android:textColor="@color/ontoPanelBtn" />
+                                        </LinearLayout>
+                                    </ScrollView>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ontoIndividualsTab"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical" >
+
+                                    <LinearLayout
+                                        android:id="@+id/searchIndividualsContainer"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:focusable="true"
+                                        android:orientation="vertical"
+                                        android:visibility="gone" >
+
+                                        <com.drawing.ontosketch.ui.FilterListHeaderItem
+                                            android:id="@+id/searchIndividualsItem"
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginTop="5dp" />
+
+                                        <ScrollView
+                                            android:id="@+id/searchScrollView2"
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="fill_parent"
+                                            android:background="@color/tabBackground" >
+
+                                            <LinearLayout
+                                                android:id="@+id/searchIndividualsList"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="fill_parent"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginRight="10dp"
+                                                android:orientation="vertical" >
+                                            </LinearLayout>
+                                        </ScrollView>
+                                    </LinearLayout>
+
+                                    <ScrollView
+                                        android:id="@+id/scrollView2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="fill_parent"
+                                        android:background="@color/tabBackground" >
+
+                                        <LinearLayout
+                                            android:id="@+id/individualList"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="fill_parent"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:orientation="vertical" >
+
+                                            <TextView
+                                                android:id="@+id/ontoPanelHintText2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_margin="25dp"
+                                                android:text="@string/ontopanel_hint_text"
+                                                android:textColor="@color/ontoPanelBtn" />
+                                        </LinearLayout>
+                                    </ScrollView>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ontoPropertiesTab"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical" >
+
+                                    <LinearLayout
+                                        android:id="@+id/searchPropertiesContainer"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:focusable="true"
+                                        android:orientation="vertical"
+                                        android:visibility="gone" >
+
+                                        <com.drawing.ontosketch.ui.FilterListHeaderItem
+                                            android:id="@+id/searchPropertiesItem"
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginTop="5dp" />
+
+                                        <ScrollView
+                                            android:id="@+id/searchScrollView3"
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="fill_parent"
+                                            android:background="@color/tabBackground" >
+
+                                            <LinearLayout
+                                                android:id="@+id/searchPropertiesList"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="fill_parent"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginRight="10dp"
+                                                android:orientation="vertical" >
+                                            </LinearLayout>
+                                        </ScrollView>
+                                    </LinearLayout>
+
+                                    <ScrollView
+                                        android:id="@+id/scrollView3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="fill_parent"
+                                        android:background="@color/tabBackground" >
+
+                                        <LinearLayout
+                                            android:id="@+id/propertyList"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="fill_parent"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:orientation="vertical" >
+
+                                            <TextView
+                                                android:id="@+id/ontoPanelHintText3"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_margin="25dp"
+                                                android:text="@string/ontopanel_hint_text"
+                                                android:textColor="@color/ontoPanelBtn" />
+                                        </LinearLayout>
+                                    </ScrollView>
+                                </LinearLayout>
+                            </FrameLayout>
+                        </LinearLayout>
+                    </TabHost>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@android:color/background_dark" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp" >
+
+                    <EditText
+                        android:id="@+id/searchInput"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="false"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:ems="10"
+                        android:hint="SEARCH"
+                        android:imeOptions="actionGo"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:maxLines="1" >
+                    </EditText>
+
+                    <ImageButton
+                        android:id="@+id/searchButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:onClick="searchInOntoPanel"
+                        android:src="@drawable/ic_search" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/ontoPanelCloseBtn"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:background="@color/ontoPanelBtn"
+                android:src="@drawable/ic_onto_close" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonLayer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/alternativeWordsPanel"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:minWidth="200dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+                    android:imeActionLabel="OK"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/buttonConfirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    android:visibility="invisible" />
+                
+                <Button
+                    android:id="@+id/buttonCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:visibility="invisible" />
+                
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/debugPanel"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="550dp"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <ToggleButton
+                    android:id="@+id/debugDrawRegions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="enableRegions"
+                    android:textOff="Off DrawRegions"
+                    android:textOn="On DrawRegions"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/progressLayer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/progressBackground"
+        android:visibility="gone" >
+
+		<ImageView
+		    android:id="@+id/progressIcon"
+		    android:layout_width="150dp"
+		    android:layout_height="150dp"
+		    android:layout_centerInParent="true"
+		    android:src="@drawable/ic_content_undo_active" > 
+		</ImageView>
+		
+    </RelativeLayout>
+
+</RelativeLayout>

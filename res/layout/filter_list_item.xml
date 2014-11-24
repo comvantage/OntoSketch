@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@color/highlight" >
+    
+    <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerHorizontal="false"
+                                            android:layout_centerVertical="true"
+                                            android:layout_margin="10dp" >
+
+                                            <TextView
+                                                android:id="@+id/label"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginRight="10dp"
+                                                android:text="Filter:"
+                                                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                                            <TextView
+                                                android:id="@+id/searchText"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@color/ontoPanelBtn"
+                                                android:paddingBottom="5dp"
+                                                android:paddingLeft="10dp"
+                                                android:paddingRight="10dp"
+                                                android:paddingTop="5dp"
+                                                android:text="TextView"
+                                                android:textColor="@color/white" />
+
+                                        </LinearLayout>
+
+                                        <ImageButton
+                                            android:id="@+id/closeButton"
+                                            android:layout_width="35dp"
+                                            android:layout_height="35dp"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_centerVertical="true"
+                                            android:background="@color/transparent"
+                                            android:baselineAlignBottom="false"
+                                            android:scaleType="center"
+                                            android:src="@drawable/ic_listitem_delete2" />
+
+</RelativeLayout>

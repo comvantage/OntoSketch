@@ -1,0 +1,45 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@+id/menu_undo"
+          android:icon="@drawable/ic_content_undo_active"
+          android:title="@string/menu_undo"
+          android:showAsAction="always"
+           />
+    
+    <item android:id="@+id/menu_delete"
+          android:icon="@drawable/ic_content_delete_active"
+          android:title="@string/menu_delete"
+          android:showAsAction="always"
+           />
+    
+    <item android:id="@+id/menu_open"
+          android:icon="@drawable/ic_collections_open_session"
+          android:title="@string/menu_open"
+          android:showAsAction="always"
+          />
+    
+    <item android:id="@+id/menu_save"
+          android:icon="@drawable/ic_content_save"
+          android:title="@string/menu_save"
+          android:showAsAction="always"/>
+    
+    <item
+        android:id="@+id/menu_import"
+        android:orderInCategory="99"
+        android:showAsAction="collapseActionView"
+        android:title="@string/menu_import"/>
+    
+    <item
+        android:id="@+id/menu_export"
+        android:orderInCategory="99"
+        android:showAsAction="collapseActionView"
+        android:title="@string/menu_export"/>
+    
+    <item
+        android:id="@+id/menu_settings"
+        android:orderInCategory="100"
+        android:showAsAction="collapseActionView"
+        android:title="@string/menu_settings"
+        android:enabled="false"/>
+
+</menu>

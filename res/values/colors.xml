@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00FFFFFF</color>
+    
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    
+     <color name="progressBackground">#99000000</color>
+    
+    <color name="tabBackground">#E2E2E2</color>
+    <color name="tabBtnBackground">#c6c6c6</color>
+    <color name="ontoPanelBtn">#818181</color>
+    
+    <color name="sketchBackground">#F6F6F6</color>
+
+    <color name="activeGray">#979997</color>
+	<color name="inactiveGray">#d6d8d5</color>
+	
+	<color name="highlight">#FF51bce8</color>
+	<color name="activeSketch">#979997</color>
+	<color name="sketch">#FF000000</color>
+	
+	
+	<color name="concept">#FF7acb43</color>
+	<color name="individual">#FF9f1e94</color>
+	<color name="formalizedBackground">#999999</color>
+	
+	
+	<color name="propertyRelation01">#FF662483</color>
+	<color name="propertyRelation02">#FFF39200</color>
+	<color name="propertyRelation03">#FFE30613</color>
+	<color name="propertyRelation04">#FF0F75BC</color>
+	<color name="propertyRelation05">#FF009640</color>
+	<color name="propertyRelation06">#FFFFDE00</color>
+		<color name="propertyRelation07">#FF0CEDA7</color>
+	<color name="propertyRelation08">#FFE6007E</color>
+		<color name="propertyRelation09">#FF5575BC</color>
+	<color name="propertyRelation10">#FFA81916</color>
+		<color name="propertyRelation11">#FF0F7555</color>
+		<color name="propertyRelation12">#FF9975BC</color>
+		<color name="propertyRelation13">#FF0F99BC</color>
+	<color name="propertyRelation14">#FFE2BC00</color>
+	<color name="propertyRelation15">#FFE94E1B</color>
+		<color name="propertyRelation16">#FF0FbbBC</color>
+	<color name="propertyRelation17">#FF2FAC66</color>
+	<color name="propertyRelation18">#FFEAE01F</color>
+	<color name="propertyRelation19">#FFCC00A1</color>
+	<color name="propertyRelation20">#FF8D29A5</color>
+
+	<color name="lightgreen">#FF8CC63F</color>
+    <color name="green">#FF0A803B</color>
+    <color name="lightblue">#FF25AAE1</color>
+    <color name="blue">#FF0F75BC</color>
+    <color name="lightorange">#FFF7941E</color>
+    <color name="orange">#FFF1592A</color>
+    <color name="pink">#FFED217C</color>
+    <color name="red">#FFBF1E2D</color>
+
+
+    
+</resources>
